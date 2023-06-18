@@ -5,8 +5,8 @@ import {
   View,
 } from "react-native";
 import styled from "styled-components";
-import { colors } from "../../consts/colors";
-import { TextProps } from "../../models/styles";
+import { colors } from "../consts/colors";
+import { TextProps } from "../models/styles";
 
 export const StyledKeyboardAvoidingView = styled(KeyboardAvoidingView)`
   flex: 1;
@@ -38,8 +38,8 @@ export const StyledText = styled(Text)<TextProps>`
 export const StyledForm = styled(View)`
   width: 85%;
   gap: 15px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `;
 
 export const StyledDivider = styled(View)`

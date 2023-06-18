@@ -11,7 +11,7 @@ import Input from "../../components/Input";
 import SocialTouchable from "../../components/SocialTouchable";
 import { colors } from "../../consts/colors";
 import { NavigationProps } from "../../models/navigation";
-import { FormData } from "../../models/screens";
+import { FormDataLogin } from "../../models/screens";
 import {
   StyledContainer,
   StyledDivider,
@@ -21,20 +21,20 @@ import {
   StyledText,
   StyledTitle,
   StyledTouchable,
-} from "./Login.styles";
+} from "../../styles/Auth.styles";
 
 const Login: React.FC<NavigationProps> = ({ navigation }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<FormDataLogin>({
     defaultValues: {
       username: "",
       password: "",
     },
   });
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: FormDataLogin) => {
     navigation.navigate("Tabs");
   };
 

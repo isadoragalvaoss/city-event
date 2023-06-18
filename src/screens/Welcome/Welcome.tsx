@@ -29,7 +29,10 @@ const Welcome: React.FC<NavigationProps> = ({ navigation }) => {
         <StyledText fontSize={14} textAlign="center">
           Unlock the world of exciting events and create lasting memories
         </StyledText>
-        <Button text="LOGIN" onPress={() => navigation.navigate("Login")} />
+        <Button
+          text="Get Started"
+          onPress={() => navigation.navigate("Login")}
+        />
       </StyledContentContainer>
     </StyledSafeAreaView>
   );
