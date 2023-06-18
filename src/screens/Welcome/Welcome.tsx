@@ -1,7 +1,7 @@
-import { NavigationProp } from "@react-navigation/native";
 import React from "react";
 import Button from "../../components/Button";
 import { welcomeImages } from "../../consts/images";
+import { NavigationProps } from "../../models/navigation";
 import {
   StyledContentContainer,
   StyledImage,
@@ -10,15 +10,7 @@ import {
   StyledText,
 } from "./Welcome.styles";
 
-type RootStackParamList = {
-  Login: undefined;
-};
-
-type WelcomeProps = {
-  navigation: NavigationProp<RootStackParamList, "Login">;
-};
-
-const Welcome: React.FC<WelcomeProps> = ({ navigation }) => {
+const Welcome: React.FC<NavigationProps> = ({ navigation }) => {
   return (
     <StyledSafeAreaView>
       <StyledImageContainer>

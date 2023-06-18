@@ -1,10 +1,8 @@
 import { Image, SafeAreaView, Text, View } from "react-native";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
+import { ImageProps, TextProps } from "../../models/styles";
 
-interface ImageProps {
-  marginTop: number;
-}
 export const StyledImage = styled(Image)<ImageProps>`
   margin-top: ${(props) => props.marginTop}px;
 `;
@@ -28,11 +26,6 @@ export const StyledContentContainer = styled(View)`
   gap: 10px;
 `;
 
-interface TextProps {
-  fontSize: number;
-  fontWeight?: string;
-  textAlign?: string;
-}
 export const StyledText = styled(Text)<TextProps>`
   font-size: ${(props) => props.fontSize}px;
   font-weight: ${(props) => props.fontWeight ?? "normal"};
