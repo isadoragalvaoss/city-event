@@ -1,11 +1,7 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import {
-  Image,
-  Keyboard,
-  Platform,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { useTranslation } from "react-i18next";
+import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import SocialTouchable from "../../components/SocialTouchable";
@@ -16,6 +12,7 @@ import {
   StyledContainer,
   StyledDivider,
   StyledForm,
+  StyledImage,
   StyledKeyboardAvoidingView,
   StyledRow,
   StyledText,
@@ -38,32 +35,34 @@ const Login: React.FC<NavigationProps> = ({ navigation }) => {
     navigation.navigate("Tabs");
   };
 
+  const { t } = useTranslation();
+  const rules = {
+    required: true,
+  };
   return (
     <StyledKeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <StyledContainer>
-          <Image source={require("../../assets/Logo.png")} />
+          <StyledImage source={require("../../assets/welcome/initial.jpg")} />
 
           <StyledTitle>
             <StyledText fontSize={35} fontWeight="bold">
-              Welcome Back!
+              {t("Login.title")}
             </StyledText>
-            <StyledText color={colors.primary.gray} fontSize={18}>
-              Use Credentials to access your account
+            <StyledText color={colors.primary.gray} fontSize={17}>
+              {t("Login.description")}
             </StyledText>
           </StyledTitle>
 
           <StyledForm>
             <Controller
               control={control}
-              rules={{
-                required: true,
-              }}
+              rules={rules}
               render={({ field: { onChange, value } }) => (
                 <Input
-                  placeholder="Enter Username"
+                  placeholder={t("Auth.username.title")}
                   icon="account"
                   onChange={onChange}
                   value={value}
@@ -72,17 +71,15 @@ const Login: React.FC<NavigationProps> = ({ navigation }) => {
               name="username"
             />
             {errors.username && (
-              <StyledText>The username is required.</StyledText>
+              <StyledText>{t("Auth.username.rules")}</StyledText>
             )}
 
             <Controller
               control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              rules={rules}
+              render={({ field: { onChange, value } }) => (
                 <Input
-                  placeholder="Enter Password"
+                  placeholder={t("Auth.password.title")}
                   icon="lock"
                   onChange={onChange}
                   value={value}
@@ -92,24 +89,30 @@ const Login: React.FC<NavigationProps> = ({ navigation }) => {
               name="password"
             />
             {errors.password && (
-              <StyledText>The password is required.</StyledText>
+              <StyledText>{t("Auth.password.rules")}</StyledText>
             )}
 
-            <StyledText textAlign="right">Forgot Password?</StyledText>
-            <Button onPress={handleSubmit(onSubmit)} text="Login" />
+            <StyledText textAlign="right">
+              {t("Login.password.forget")}
+            </StyledText>
+            <Button onPress={handleSubmit(onSubmit)} text="LOGIN" fullWidth />
             <StyledRow>
               <StyledDivider />
-              <StyledText color={colors.primary.gray}>or</StyledText>
+              <StyledText color={colors.primary.gray}>
+                {t("Auth.divider")}
+              </StyledText>
               <StyledDivider />
             </StyledRow>
-            <SocialTouchable icon="facebook" text="Login with Facebook" />
-            <SocialTouchable icon="google" text="Login with Google" />
+            <SocialTouchable icon="facebook" text={t("Auth.facebook")} />
+            <SocialTouchable icon="google" text={t("Auth.google")} />
           </StyledForm>
 
           <StyledRow>
-            <StyledText>Don't have an account?</StyledText>
+            <StyledText>{t("Login.account")}</StyledText>
             <StyledTouchable onPress={() => navigation.navigate("SignUp")}>
-              <StyledText color={colors.primary.pink}>SignUp</StyledText>
+              <StyledText color={colors.primary.blue}>
+                {t("Login.signup")}
+              </StyledText>
             </StyledTouchable>
           </StyledRow>
         </StyledContainer>

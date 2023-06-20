@@ -1,11 +1,7 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import {
-  Image,
-  Keyboard,
-  Platform,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { useTranslation } from "react-i18next";
+import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import SocialTouchable from "../../components/SocialTouchable";
@@ -16,6 +12,7 @@ import {
   StyledContainer,
   StyledDivider,
   StyledForm,
+  StyledImage,
   StyledKeyboardAvoidingView,
   StyledRow,
   StyledText,
@@ -39,32 +36,33 @@ const SignUp: React.FC<NavigationProps> = ({ navigation }) => {
     navigation.navigate("Tabs");
   };
 
+  const { t } = useTranslation();
+  const rules = {
+    required: true,
+  };
   return (
     <StyledKeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <StyledContainer>
-          <Image source={require("../../assets/Logo.png")} />
-
+          <StyledImage source={require("../../assets/welcome/initial.jpg")} />
           <StyledTitle>
             <StyledText fontSize={30} fontWeight="bold">
-              Create an Account
+              {t("SignUp.title")}
             </StyledText>
             <StyledText color={colors.primary.gray} fontSize={16}>
-              Please fill this detail to create an account
+              {t("Login.description")}
             </StyledText>
           </StyledTitle>
 
           <StyledForm>
             <Controller
               control={control}
-              rules={{
-                required: true,
-              }}
+              rules={rules}
               render={({ field: { onChange, value } }) => (
                 <Input
-                  placeholder="Enter Username"
+                  placeholder={t("Auth.username.title")}
                   icon="account"
                   onChange={onChange}
                   value={value}
@@ -73,17 +71,15 @@ const SignUp: React.FC<NavigationProps> = ({ navigation }) => {
               name="username"
             />
             {errors.username && (
-              <StyledText>The username is required.</StyledText>
+              <StyledText>{t("Auth.username.rules")}</StyledText>
             )}
 
             <Controller
               control={control}
-              rules={{
-                required: true,
-              }}
+              rules={rules}
               render={({ field: { onChange, value } }) => (
                 <Input
-                  placeholder="Enter Email"
+                  placeholder={t("SignUp.email.title")}
                   icon="email"
                   onChange={onChange}
                   value={value}
@@ -91,16 +87,14 @@ const SignUp: React.FC<NavigationProps> = ({ navigation }) => {
               )}
               name="email"
             />
-            {errors.email && <StyledText>The email is required.</StyledText>}
+            {errors.email && <StyledText>{t("SignUp.email.rules")}</StyledText>}
 
             <Controller
               control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              rules={rules}
+              render={({ field: { onChange, value } }) => (
                 <Input
-                  placeholder="Enter Password"
+                  placeholder={t("Auth.password.title")}
                   icon="lock"
                   onChange={onChange}
                   value={value}
@@ -110,23 +104,31 @@ const SignUp: React.FC<NavigationProps> = ({ navigation }) => {
               name="password"
             />
             {errors.password && (
-              <StyledText>The password is required.</StyledText>
+              <StyledText>{t("Auth.password.rules")}</StyledText>
             )}
 
-            <Button onPress={handleSubmit(onSubmit)} text="SignUp" />
+            <Button
+              onPress={handleSubmit(onSubmit)}
+              text={t("SignUp.button")}
+              fullWidth
+            />
             <StyledRow>
               <StyledDivider />
-              <StyledText color={colors.primary.gray}>or</StyledText>
+              <StyledText color={colors.primary.gray}>
+                {t("Auth.divider")}
+              </StyledText>
               <StyledDivider />
             </StyledRow>
-            <SocialTouchable icon="facebook" text="Login with Facebook" />
-            <SocialTouchable icon="google" text="Login with Google" />
+            <SocialTouchable icon="facebook" text={t("Auth.facebook")} />
+            <SocialTouchable icon="google" text={t("Auth.google")} />
           </StyledForm>
 
           <StyledRow>
-            <StyledText>Already have an account?</StyledText>
+            <StyledText>{t("SignUp.account")}</StyledText>
             <StyledTouchable onPress={() => navigation.navigate("Login")}>
-              <StyledText color={colors.primary.pink}>Login</StyledText>
+              <StyledText color={colors.primary.blue}>
+                {t("SignUp.login")}
+              </StyledText>
             </StyledTouchable>
           </StyledRow>
         </StyledContainer>

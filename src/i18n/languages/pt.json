@@ -1,0 +1,55 @@
+{
+  "translation": {
+    "Tabs": {
+      "Tickets": "Todos os ingressos",
+      "Favorites": "Favoritos",
+      "Profile": "Perfil"
+    },
+    "Auth": {
+      "username": {
+        "title": "Insira o usuário",
+        "rules": "O usuário é obrigatório"
+      },
+      "password": {
+        "title": "Insira a senha",
+        "rules": "A senha é obrigatória"
+      },
+      "divider": "ou",
+      "facebook": "Login com Facebook",
+      "google": "Login com Google"
+    },
+    "Login": {
+      "title": "Bem Vindo de Volta!",
+      "description": "Use suas credenciais para acessar sua conta",
+
+      "password": {
+        "forget": "Esqueceu a senha?"
+      },
+      "account": "Não tem uma conta?",
+      "signup": "Cadastre-se"
+    },
+    "SignUp": {
+      "title": "Crie uma conta",
+      "description": "Preencha seus dados para criar uma conta",
+      "email": {
+        "title": "Insira o email",
+        "rules": "O email é obrigatório"
+      },
+      "button": "CADASTRE-SE",
+      "account": "Já tem uma conta?",
+      "login": "Faça o Login"
+    },
+    "Welcome": {
+      "title": "Conectando pessoas, ideias e oportunidades para eventos inesquecíveis",
+      "signup": "CADASTRO"
+    },
+    "Feed": {
+      "location": { "title": "Localização", "waiting": "Carregando..." },
+      "search": "Pesquisar",
+      "upComing": "Próximos eventos",
+      "popular": "Eventos populares",
+      "recommendations": "Recomendações para você",
+      "seeAll": "Veja Todos"
+    }
+  }
+}

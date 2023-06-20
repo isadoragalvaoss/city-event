@@ -1,0 +1,54 @@
+{
+  "translation": {
+    "Tabs": {
+      "Tickets": "All tickets",
+      "Favorites": "Favorites",
+      "Profile": "Profile"
+    },
+    "Auth": {
+      "username": {
+        "title": "Enter username",
+        "rules": "The username is required"
+      },
+      "password": {
+        "title": "Enter password",
+        "rules": "The password is required"
+      },
+      "divider": "or",
+      "facebook": "Login with Facebook",
+      "google": "Login with Google"
+    },
+    "Login": {
+      "title": "Welcome back!",
+      "description": "Use Credentials to access your account",
+      "password": {
+        "forget": "Forget the password?"
+      },
+      "account": "Don't have an account?",
+      "signup": "Sign up"
+    },
+    "SignUp": {
+      "title": "Create an Account",
+      "description": "Please fill this detail to create an account",
+      "email": {
+        "title": "Enter email",
+        "rules": "The email is required"
+      },
+      "button": "SIGN UP",
+      "account": "Already have an account?",
+      "login": "Login"
+    },
+    "Welcome": {
+      "title": "Connecting people, ideas, and opportunities for unforgettable events",
+      "signup": "SIGN UP"
+    },
+    "Feed": {
+      "location": { "title": "Location", "waiting": "Waiting..." },
+      "search": "Search",
+      "upComing": "Upcoming events",
+      "popular": "Popular now",
+      "recommendations": "Recommendations for you",
+      "seeAll": "See All"
+    }
+  }
+}
