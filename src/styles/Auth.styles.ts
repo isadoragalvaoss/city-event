@@ -1,4 +1,5 @@
 import {
+  Image,
   KeyboardAvoidingView,
   Text,
   TouchableOpacity,
@@ -10,34 +11,32 @@ import { TextProps } from "../models/styles";
 
 export const StyledKeyboardAvoidingView = styled(KeyboardAvoidingView)`
   flex: 1;
-  background-color: ${colors.dark.black};
+  background-color: ${colors.light.white};
 `;
 
 export const StyledContainer = styled(View)`
   justify-content: center;
   align-items: center;
   flex: 1;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 5px;
 `;
 
 export const StyledTitle = styled(View)`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
 `;
 
 export const StyledText = styled(Text)<TextProps>`
   font-size: ${(props) => props.fontSize ?? 14}px;
-  color: ${(props) => props.color ?? colors.light.white};
+  color: ${(props) => props.color ?? colors.dark.black};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign ?? "auto"};
 `;
 
 export const StyledForm = styled(View)`
   width: 85%;
-  gap: 15px;
+  gap: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
 `;
@@ -56,4 +55,9 @@ export const StyledRow = styled(View)`
 
 export const StyledTouchable = styled(TouchableOpacity)`
   align-items: center;
+`;
+
+export const StyledImage = styled(Image)`
+  width: 200px;
+  height: 200px;
 `;

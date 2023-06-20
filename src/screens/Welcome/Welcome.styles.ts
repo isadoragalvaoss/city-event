@@ -1,34 +1,39 @@
+import { Select } from "@ui-kitten/components";
 import { Image, SafeAreaView, Text, View } from "react-native";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
-import { ImageProps, TextProps } from "../../models/styles";
-
-export const StyledImage = styled(Image)<ImageProps>`
-  margin-top: ${(props) => props.marginTop}px;
-`;
+import { TextProps } from "../../models/styles";
 
 export const StyledSafeAreaView = styled(SafeAreaView)`
-  background-color: ${colors.dark.black};
+  background-color: ${colors.light.white};
   flex: 1;
 `;
 
-export const StyledImageContainer = styled(View)`
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
-
-export const StyledContentContainer = styled(View)`
-  flex: 1;
+export const StyledContainer = styled(View)`
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  gap: 10px;
+  flex: 1;
+  gap: 20px;
+  margin-horizontal: 30px;
+`;
+
+export const StyledImage = styled(Image)`
+  width: 350px;
+  height: 350px;
+`;
+
+export const StyledButtonsContainer = styled(View)`
+  flex-direction: row;
+  gap: 15px;
+`;
+
+export const StyledSelect = styled(Select)`
+  width: 100%;
 `;
 
 export const StyledText = styled(Text)<TextProps>`
   font-size: ${(props) => props.fontSize}px;
   font-weight: ${(props) => props.fontWeight ?? "normal"};
-  color: ${colors.light.white};
+  color: ${colors.primary.blue};
   text-align: ${(props) => props.textAlign ?? "auto"};
 `;
