@@ -1,19 +1,22 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { colors } from "../consts/colors";
 import Favorites from "./Favorites";
-import Feed from "./Feed";
+import Feed from "./Feed/Feed";
 import Profile from "./Profile";
 import Tickets from "./Tickets";
 
 const Tabs: React.FC = () => {
   const Tab = createBottomTabNavigator();
+  const { t, i18n } = useTranslation();
+
   return (
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarActiveTintColor: colors.primary.pink,
+        tabBarActiveTintColor: colors.primary.blue,
       }}
     >
       <Tab.Screen
@@ -21,13 +24,14 @@ const Tabs: React.FC = () => {
         component={Feed}
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="All Tickets"
+        name={t("Tabs.Tickets")}
         component={Tickets}
         options={{
           tabBarShowLabel: false,
@@ -37,7 +41,7 @@ const Tabs: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Favorites"
+        name={t("Tabs.Favorites")}
         component={Favorites}
         options={{
           tabBarShowLabel: false,
@@ -47,7 +51,7 @@ const Tabs: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name={t("Tabs.Profile")}
         component={Profile}
         options={{
           tabBarShowLabel: false,
