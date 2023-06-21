@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Card } from "@ui-kitten/components";
 import { Image, Text, View } from "react-native";
 import { styled } from "styled-components";
@@ -29,4 +30,19 @@ export const StyledTextContainer = styled(View)<TextContainerProps>`
   flex-direction: row;
   align-items: ${(props) => (props.align ? "center" : "flex-end")};
   gap: 5px;
+`;
+
+export const StyledActions = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+
+export const StyledButtonCart = styled(View)`
+  width: 80%;
+`;
+
+export const StyledFavoriteIcon = styled(MaterialCommunityIcons)`
+  margin-top: 20px;
 `;

@@ -51,6 +51,7 @@
       "seeAll": "See All",
       "join": "Join"
     },
-    "Cart": { "add": "Add to Cart" }
+    "Cart": { "add": "Add to Cart" },
+    "Favorite": { "none": "No favorite items found." }
   }
 }

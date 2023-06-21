@@ -52,6 +52,7 @@
       "seeAll": "Veja Todos",
       "join": "Participar"
     },
-    "Cart": { "add": "Adicionar ao carrinho" }
+    "Cart": { "add": "Adicionar ao carrinho" },
+    "Favorite": { "none": "Nenhum item favorito encontrado." }
   }
 }
