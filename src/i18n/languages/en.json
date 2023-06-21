@@ -48,7 +48,9 @@
       "upComing": "Upcoming events",
       "popular": "Popular now",
       "recommendations": "Recommendations for you",
-      "seeAll": "See All"
-    }
+      "seeAll": "See All",
+      "join": "Join"
+    },
+    "Cart": { "add": "Add to Cart" }
   }
 }

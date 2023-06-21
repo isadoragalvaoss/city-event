@@ -49,7 +49,9 @@
       "upComing": "Próximos eventos",
       "popular": "Eventos populares",
       "recommendations": "Recomendações para você",
-      "seeAll": "Veja Todos"
-    }
+      "seeAll": "Veja Todos",
+      "join": "Participar"
+    },
+    "Cart": { "add": "Adicionar ao carrinho" }
   }
 }
