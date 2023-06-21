@@ -1,8 +1,8 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { TouchableWithoutFeedback } from "react-native";
 import { colors } from "../../consts/colors";
 import { InputProps } from "../../models/components";
+import renderLeftIcon from "../../utils/renderLeftIcon";
+import renderRightIcon from "../../utils/renderRightIcon";
 import { StyledInput } from "./Input.styles";
 
 const Input: React.FC<InputProps> = ({
@@ -11,36 +11,30 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   password,
+  filter,
 }) => {
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
-
+  const nameRightIcon = password
+    ? secureTextEntry
+      ? "eye-off"
+      : "eye"
+    : "filter-variant";
+  const visibleRightIcon = password || filter;
   const toggleSecureEntry = (): void => {
     setSecureTextEntry(!secureTextEntry);
   };
 
-  const renderRightIcon = (): React.ReactElement => (
-    <>
-      {password && (
-        <TouchableWithoutFeedback onPress={toggleSecureEntry}>
-          <MaterialCommunityIcons
-            name={secureTextEntry ? "eye-off" : "eye"}
-            color={colors.primary.gray}
-            size={25}
-          />
-        </TouchableWithoutFeedback>
-      )}
-    </>
-  );
-
-  const renderLeftIcon = (): React.ReactElement => (
-    <MaterialCommunityIcons name={icon} color={colors.primary.gray} size={25} />
-  );
-
   return (
     <StyledInput
-      accessoryLeft={renderLeftIcon}
+      accessoryLeft={() => renderLeftIcon({ icon: icon })}
       secureTextEntry={password && secureTextEntry}
-      accessoryRight={renderRightIcon}
+      accessoryRight={() =>
+        renderRightIcon({
+          name: nameRightIcon,
+          onPress: toggleSecureEntry,
+          visible: visibleRightIcon,
+        })
+      }
       placeholder={placeholder}
       value={value}
       onChangeText={onChange}
