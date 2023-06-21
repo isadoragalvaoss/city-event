@@ -1,3 +1,8 @@
+export interface CardProps {
+  large?: boolean;
+  justify?: string;
+  color?: string;
+}
 export interface TextProps {
   fontSize?: number;
   color?: string;
@@ -7,4 +12,8 @@ export interface TextProps {
 
 export interface ImageProps {
   marginTop: number;
+}
+
+export interface TextContainerProps {
+  align?: boolean;
 }
