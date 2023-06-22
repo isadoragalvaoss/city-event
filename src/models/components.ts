@@ -14,6 +14,8 @@ export interface ButtonProps {
   onPress?: () => void;
   text?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
+  outlined?: boolean;
 }
 
 export interface SocialProps {
@@ -24,6 +26,9 @@ export interface SocialProps {
 export interface CardProps {
   item: ItemProps;
   large?: boolean;
+  remove?: boolean;
+  favorite?: boolean;
+  ticket?: boolean;
 }
 
 export interface ItemProps {
@@ -34,7 +39,7 @@ export interface ItemProps {
   date: string;
   category: string;
   description: string;
-  price: string;
+  price: number;
   schedule: string;
   organizer: string;
 }
@@ -51,6 +56,14 @@ export interface CategoryProps {
 export interface ModalProps {
   visible: boolean;
   item: ItemProps;
+  setVisible: () => void;
+  favorite?: boolean;
+  ticket?: boolean;
+}
+
+export interface ConfirmProps {
+  visible: boolean;
+  item: ItemProps[];
   setVisible: () => void;
 }
 export interface InfoProps {

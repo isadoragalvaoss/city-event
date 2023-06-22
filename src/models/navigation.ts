@@ -1,9 +1,13 @@
 import { NavigationProp } from "@react-navigation/native";
 
-interface RootStackParamList {
+export interface RootStackParamList {
   Tabs: undefined;
   Login: undefined;
   SignUp: undefined;
+  Cart: undefined;
+  Feed: undefined;
+  Payment: undefined;
+  Tickets: undefined;
 }
 
 export interface NavigationProps {

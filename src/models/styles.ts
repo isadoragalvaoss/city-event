@@ -17,3 +17,8 @@ export interface ImageProps {
 export interface TextContainerProps {
   align?: boolean;
 }
+
+export interface ButtonProps {
+  outlined?: boolean;
+  fullWidth?: boolean;
+}
