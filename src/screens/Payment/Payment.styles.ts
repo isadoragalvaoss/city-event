@@ -42,6 +42,5 @@ export const StyledRadioText = styled(Text)`
 `;
 
 export const StyledButtonContainer = styled(View)`
-  height: 65%;
-  justify-content: flex-end;
+  margin-bottom: 60px;
 `;
