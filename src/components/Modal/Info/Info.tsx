@@ -3,12 +3,11 @@ import { Modal as ModalUI } from "@ui-kitten/components";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { colors } from "../../consts/colors";
-import { InfoProps, ItemProps, ModalProps } from "../../models/components";
-import { addFavorite, removeFavorite } from "../../store/slices/favorite";
-import { RootState } from "../../store/store";
-import Button from "../Button";
+import { useDispatch } from "react-redux";
+import { colors } from "../../../consts/colors";
+import { InfoProps, ModalProps } from "../../../models/components";
+import { addCart } from "../../../store/slices/cart";
+import { addFavorite, removeFavorite } from "../../../store/slices/favorite";
 import {
   StyledActions,
   StyledButtonCart,
@@ -18,35 +17,43 @@ import {
   StyledText,
   StyledTextBold,
   StyledTextContainer,
-} from "./Modal.styles";
+} from "../../../styles/Modal.styles";
+import { navigate } from "../../../utils/navigate";
+import useStore from "../../../utils/store";
+import Button from "../../Button";
 
-const Modal: React.FC<ModalProps> = ({ visible, item, setVisible }) => {
+const Info: React.FC<ModalProps> = ({ visible, item, setVisible }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites
-  );
+  const { isCart, isFavorite, isTickets } = useStore();
+  const icon = isFavorite(item) ? "heart" : "heart-outline";
+  const isCartOrTicket = isCart(item) || isTickets(item);
+
   const info: InfoProps[] = [
     { name: item.date, icon: "calendar" },
     { name: item.location, icon: "map-marker-outline" },
     { name: item.schedule, icon: "clock-outline" },
-    { name: item.price, icon: "cash" },
+    { name: item.price.toString(), icon: "cash" },
     { name: item.organizer, icon: "account-group-outline" },
     { name: item.description, icon: "text" },
   ];
-
-  const isFavorite = (favoriteId: ItemProps) => {
-    return favorites.some(
-      (favorite: ItemProps) => favorite.id === favoriteId.id
-    );
-  };
-
-  const icon = isFavorite(item) ? "heart" : "heart-outline";
 
   const handleFavorite = () => {
     isFavorite(item)
       ? dispatch(removeFavorite(item.id))
       : dispatch(addFavorite(item));
+  };
+
+  const handleCart = () => {
+    dispatch(addCart(item));
+    navigate("Cart");
+    setVisible();
+  };
+
+  const buttonText = () => {
+    if (isCart(item)) return t("Modal.info.button.cart");
+    else if (isTickets(item)) return t("Modal.info.button.ticket");
+    else return t("Modal.info.button.add");
   };
 
   return (
@@ -72,7 +79,13 @@ const Modal: React.FC<ModalProps> = ({ visible, item, setVisible }) => {
 
         <StyledActions>
           <StyledButtonCart>
-            <Button fullWidth text={t("Cart.add")} />
+            <Button
+              fullWidth
+              text={buttonText()}
+              onPress={handleCart}
+              disabled={isCartOrTicket}
+              outlined={isCartOrTicket}
+            />
           </StyledButtonCart>
           <TouchableOpacity onPress={handleFavorite}>
             <StyledFavoriteIcon
@@ -87,4 +100,4 @@ const Modal: React.FC<ModalProps> = ({ visible, item, setVisible }) => {
   );
 };
 
-export default Modal;
+export default Info;
