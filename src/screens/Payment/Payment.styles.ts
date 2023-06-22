@@ -15,18 +15,6 @@ export const StyledTitleText = styled(Text)`
   margin-bottom: 10px;
 `;
 
-export const StyledCartContainer = styled(View)`
-  justify-content: center;
-  align-items: center;
-  margin-vertical: 5;
-`;
-
-export const StyledCartContent = styled(View)`
-  width: 80%;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
 export const StyledCartText = styled(Text)`
   font-size: 16px;
 `;
@@ -43,17 +31,17 @@ export const StyledTotalText = styled(Text)`
 `;
 
 export const StyledRadioGroup = styled(RadioGroup)`
-  padding-left: 10;
-  padding-top: 10;
+  padding-left: 10px;
+  padding-top: 10px;
 `;
 
 export const StyledRadioText = styled(Text)`
   padding-left: 10px;
   padding-right: 5px;
-  fontsize: 16px;
+  font-size: 16px;
 `;
 
 export const StyledButtonContainer = styled(View)`
-  height: 100%;
+  height: 65%;
   justify-content: flex-end;
 `;

@@ -3,15 +3,14 @@ import { Radio } from "@ui-kitten/components";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
 import Confirm from "../../components/Modal/Confirm";
 import { colors } from "../../consts/colors";
 import { ItemProps } from "../../models/components";
+import { navigate } from "../../utils/navigate";
 import useStore from "../../utils/store";
 import {
   StyledButtonContainer,
-  StyledCartContainer,
-  StyledCartContent,
-  StyledCartText,
   StyledDivider,
   StyledRadioGroup,
   StyledRadioText,
@@ -31,12 +30,7 @@ const Payment: React.FC = () => {
     <StyledScrollView>
       <StyledTitleText>{t("Payment.order")}</StyledTitleText>
       {carts.map((item: ItemProps) => (
-        <StyledCartContainer key={item.id}>
-          <StyledCartContent key={item.id}>
-            <StyledCartText>{item.title}</StyledCartText>
-            <StyledCartText>{item.price}</StyledCartText>
-          </StyledCartContent>
-        </StyledCartContainer>
+        <Card item={item} remove key={item.id} />
       ))}
       <StyledDivider />
       <StyledTotalText>Total: {total}</StyledTotalText>
@@ -63,14 +57,22 @@ const Payment: React.FC = () => {
           </>
         </Radio>
       </StyledRadioGroup>
-
-      <StyledButtonContainer>
+      {!!carts.length ? (
+        <StyledButtonContainer>
+          <Button
+            text={t("Payment.done")}
+            fullWidth
+            onPress={() => setVisibleConfirm(true)}
+          />
+        </StyledButtonContainer>
+      ) : (
         <Button
-          text={t("Payment.done")}
           fullWidth
-          onPress={() => setVisibleConfirm(true)}
+          text={t("Cart.more")}
+          onPress={() => navigate("Feed")}
+          outlined
         />
-      </StyledButtonContainer>
+      )}
       <Confirm
         item={carts}
         setVisible={() => setVisibleConfirm(false)}

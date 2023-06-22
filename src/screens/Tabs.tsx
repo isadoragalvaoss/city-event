@@ -2,9 +2,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { TouchableOpacity } from "react-native";
 import { colors } from "../consts/colors";
-import { navigate } from "../utils/navigate";
+import renderBackIcon from "../utils/renderBack";
 import Cart from "./Cart/Cart";
 import Favorites from "./Favorites";
 import Feed from "./Feed";
@@ -78,18 +77,7 @@ const Tabs: React.FC = () => {
         options={{
           tabBarShowLabel: false,
           tabBarButton: () => null,
-          headerLeft: () => (
-            <TouchableOpacity
-              onPress={() => navigate("Cart")}
-              style={{ paddingLeft: 20 }}
-            >
-              <MaterialCommunityIcons
-                name={"arrow-left"}
-                color={colors.primary.gray}
-                size={20}
-              />
-            </TouchableOpacity>
-          ),
+          headerLeft: renderBackIcon,
         }}
       />
     </Tab.Navigator>
