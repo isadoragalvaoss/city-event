@@ -1,4 +1,3 @@
-import { Select } from "@ui-kitten/components";
 import { Image, SafeAreaView, Text, View } from "react-native";
 import styled from "styled-components";
 import { colors } from "../../consts/colors";
@@ -25,10 +24,6 @@ export const StyledImage = styled(Image)`
 export const StyledButtonsContainer = styled(View)`
   flex-direction: row;
   gap: 15px;
-`;
-
-export const StyledSelect = styled(Select)`
-  width: 100%;
 `;
 
 export const StyledText = styled(Text)<TextProps>`
