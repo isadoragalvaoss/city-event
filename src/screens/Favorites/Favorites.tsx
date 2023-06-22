@@ -1,15 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import Card from "../../components/Card";
 import { ItemProps } from "../../models/components";
-import { RootState } from "../../store/store";
-import { StyledScrollView, StyledText, StyledView } from "./Favorites.styles";
+import {
+  StyledScrollView,
+  StyledText,
+  StyledView,
+} from "../../styles/Screens.styles";
+import useStore from "../../utils/store";
 
 const Favorites: React.FC = () => {
-  const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites
-  );
+  const { favorites } = useStore();
   const { t } = useTranslation();
 
   return (
@@ -17,7 +18,7 @@ const Favorites: React.FC = () => {
       <StyledView>
         {favorites.length ? (
           favorites?.map((item: ItemProps) => (
-            <Card item={item} key={item.id} />
+            <Card item={item} key={item.id} remove favorite />
           ))
         ) : (
           <StyledText>{t("Favorite.none")}</StyledText>

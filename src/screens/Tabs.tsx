@@ -2,15 +2,19 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { TouchableOpacity } from "react-native";
 import { colors } from "../consts/colors";
+import { navigate } from "../utils/navigate";
+import Cart from "./Cart/Cart";
 import Favorites from "./Favorites";
-import Feed from "./Feed/Feed";
+import Feed from "./Feed";
+import Payment from "./Payment";
 import Profile from "./Profile";
 import Tickets from "./Tickets";
 
 const Tabs: React.FC = () => {
   const Tab = createBottomTabNavigator();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Tab.Navigator
@@ -31,7 +35,7 @@ const Tabs: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name={t("Tabs.Tickets")}
+        name={"Tickets"}
         component={Tickets}
         options={{
           tabBarShowLabel: false,
@@ -57,6 +61,34 @@ const Tabs: React.FC = () => {
           tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={"Cart"}
+        component={Cart}
+        options={{
+          tabBarShowLabel: false,
+          tabBarButton: () => null,
+        }}
+      />
+      <Tab.Screen
+        name={"Payment"}
+        component={Payment}
+        options={{
+          tabBarShowLabel: false,
+          tabBarButton: () => null,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => navigate("Cart")}
+              style={{ paddingLeft: 20 }}
+            >
+              <MaterialCommunityIcons
+                name={"arrow-left"}
+                color={colors.primary.gray}
+                size={20}
+              />
+            </TouchableOpacity>
           ),
         }}
       />
