@@ -54,3 +54,9 @@ export const StyledTextBold = styled(Text)`
 export const StyledTextGray = styled(Text)`
   color: ${colors.primary.gray};
 `;
+
+export const StyledActions = styled(View)`
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+`;

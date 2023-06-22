@@ -2,9 +2,12 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { colors } from "../../consts/colors";
+import { navigate } from "../../utils/navigate";
+import useStore from "../../utils/store";
 import {
+  StyledCartText,
   StyledHeader,
   StyledLocation,
   StyledLocationCity,
@@ -15,6 +18,7 @@ const Header: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [city, setCity] = useState<string | null>("");
   const { t } = useTranslation();
+  const { carts } = useStore();
 
   useEffect(() => {
     (async () => {
@@ -56,11 +60,14 @@ const Header: React.FC = () => {
           <StyledLocationCity>{text}</StyledLocationCity>
         </StyledLocation>
       </View>
-      <MaterialCommunityIcons
-        name="cart"
-        color={colors.primary.blue}
-        size={25}
-      />
+      <TouchableOpacity onPress={() => navigate("Cart")}>
+        <StyledCartText>{carts.length}</StyledCartText>
+        <MaterialCommunityIcons
+          name="cart"
+          color={colors.primary.blue}
+          size={25}
+        />
+      </TouchableOpacity>
     </StyledHeader>
   );
 };

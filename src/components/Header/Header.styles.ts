@@ -30,3 +30,8 @@ export const StyledLocationCity = styled(Text)`
   font-size: 16px;
   color: ${colors.primary.gray};
 `;
+
+export const StyledCartText = styled(Text)`
+  text-align: right;
+  color: ${colors.primary.gray};
+`;
