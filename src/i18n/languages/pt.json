@@ -52,7 +52,35 @@
       "seeAll": "Veja Todos",
       "join": "Participar"
     },
-    "Cart": { "add": "Adicionar ao carrinho" },
-    "Favorite": { "none": "Nenhum item favorito encontrado." }
+    "Favorite": { "none": "Nenhum item favorito encontrado." },
+    "Tickets": { "none": "Nenhum ingresso encontrado." },
+    "Modal": {
+      "confirm": {
+        "text": "Quer confirmar sua compra?",
+        "button": "Confirmar"
+      },
+      "info": {
+        "button": {
+          "cart": "Já está no carrinho",
+          "ticket": "Já foi comprado",
+          "add": "Adicionar ao Carrinho"
+        }
+      },
+      "remove": {
+        "text": "Quer deletar esse evento?",
+        "button": "Deletar"
+      }
+    },
+    "Cart": {
+      "more": "Adicionar mais ingressos",
+      "payment": "Ir para o pagamento",
+      "none": "O carrinho está vazio."
+    },
+    "Payment": {
+      "order": "Resumo do pedido",
+      "method": "Método de pagamento",
+      "card": "Cartão Crédito/Débito",
+      "done": "Realizar o pedido"
+    }
   }
 }

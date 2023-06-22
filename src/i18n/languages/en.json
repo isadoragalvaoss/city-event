@@ -51,7 +51,35 @@
       "seeAll": "See All",
       "join": "Join"
     },
-    "Cart": { "add": "Add to Cart" },
-    "Favorite": { "none": "No favorite items found." }
+    "Favorite": { "none": "No favorite items found." },
+    "Tickets": { "none": "No tickets found." },
+    "Modal": {
+      "confirm": {
+        "text": "Want to confirm your purchase?",
+        "button": "Confirm"
+      },
+      "info": {
+        "button": {
+          "cart": "Already at cart",
+          "ticket": "Already bought",
+          "add": "Add to Cart"
+        }
+      },
+      "remove": {
+        "text": "Want to remove this event?",
+        "button": "Remove"
+      }
+    },
+    "Cart": {
+      "more": "Add more tickets",
+      "payment": "Go to payment",
+      "none": "The cart is empty."
+    },
+    "Payment": {
+      "order": "Order Summary",
+      "method": "Payment Method ",
+      "card": "Credit/Debit Card",
+      "done": "Place Order"
+    }
   }
 }
