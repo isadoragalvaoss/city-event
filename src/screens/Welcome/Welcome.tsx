@@ -27,7 +27,7 @@ const Welcome: React.FC = () => {
           {t("Welcome.title")}
         </StyledText>
         <StyledButtonsContainer>
-          <Button text="LOGIN" onPress={() => navigate("Login")} />
+          <Button text="LOGIN" onPress={() => navigate("Login")} outlined />
           <Button
             text={t("Welcome.signup")}
             onPress={() => navigate("SignUp")}
