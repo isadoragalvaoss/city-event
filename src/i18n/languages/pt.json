@@ -81,6 +81,7 @@
       "method": "Método de pagamento",
       "card": "Cartão Crédito/Débito",
       "done": "Realizar o pedido"
-    }
+    },
+    "Logout": { "text": "SAIR" }
   }
 }
